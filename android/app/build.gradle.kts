@@ -7,15 +7,15 @@ plugins {
 
 android {
     namespace = "com.example.time_of_mine"
-    compileSdk = flutter.compileSdkVersion
+    compileSdk = 34  // <-- конкретное число
     ndkVersion = "27.0.12077973"
 
     defaultConfig {
         applicationId = "com.example.time_of_mine"
-         minSdk = 21
-         targetSdk = 34
-         versionCode = 1
-         versionName = "1.0.0"
+        minSdk = 21
+        targetSdk = 34
+        versionCode = 1
+        versionName = "1.0.0"
     }
 
     compileOptions {
