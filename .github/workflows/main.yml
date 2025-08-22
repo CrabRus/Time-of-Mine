@@ -27,6 +27,7 @@ jobs:
 
       - run: flutter config --no-analytics
       - run: flutter doctor
+      - run: flutter clean
       - run: flutter pub get
       - run: flutter test
       - run: flutter build apk --debug --split-per-abi
