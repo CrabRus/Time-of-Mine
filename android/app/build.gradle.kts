@@ -7,13 +7,13 @@ plugins {
 
 android {
     namespace = "com.example.time_of_mine"
-    compileSdk = 34  // <-- конкретное число
+    compileSdk = 34  // <-- ставим конкретное число
     ndkVersion = "27.0.12077973"
 
     defaultConfig {
         applicationId = "com.example.time_of_mine"
-        minSdk = 21
-        targetSdk = 34
+        minSdk = 21       // <-- константа
+        targetSdk = 34    // <-- константа
         versionCode = 1
         versionName = "1.0.0"
     }
