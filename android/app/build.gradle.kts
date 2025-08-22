@@ -1,3 +1,6 @@
+import java.util.Properties
+import java.io.FileInputStream
+
 plugins {
     id("com.android.application")
     id("kotlin-android")
@@ -36,7 +39,7 @@ android {
         create("release") {
             keyAlias = keystoreProperties["keyAlias"] as String
             keyPassword = keystoreProperties["keyPassword"] as String
-            storeFile = keystoreProperties["storeFile"]?.let { file(it) }
+            storeFile = keystoreProperties["storeFile"]?.let { file(it as String) }
             storePassword = keystoreProperties["storePassword"] as String
         }
     }
