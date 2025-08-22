@@ -27,7 +27,6 @@ dependencies:
   auto_size_text: ^3.0.0
   collection: 1.16.0
   flutter_local_notifications: ^19.4.0
-  flutter_timezone: ^3.0.0
   flutter_timezone: ^4.1.1
   
 
