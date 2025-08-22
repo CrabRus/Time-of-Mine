@@ -7,13 +7,13 @@ plugins {
 
 android {
     namespace = "com.example.time_of_mine"
-    compileSdk = 34  // <-- ставим конкретное число
+    compileSdk = 36
     ndkVersion = "27.0.12077973"
 
     defaultConfig {
         applicationId = "com.example.time_of_mine"
-        minSdk = 21       // <-- константа
-        targetSdk = 34    // <-- константа
+        minSdkVersion(24)
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0.0"
     }
@@ -36,9 +36,5 @@ android {
 }
 
 dependencies {
-    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.1.4")
-}
-
-flutter {
-    source = "../.."
+    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.1.4") // <-- Update to 2.1.4
 }
