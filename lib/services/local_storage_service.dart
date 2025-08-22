@@ -7,14 +7,26 @@ import 'package:time_of_mine/services/sync_service.dart';
 import 'package:flutter/foundation.dart';
 
 class LocalStorageService {
-  static String get _uid {
+    static String get _uid {
+    // Если тестовый режим или debug mode, возвращаем фиктивный UID
+    if (kDebugMode || _isRunningTests) {
+      return 'test_uid';
+    }
+
     final user = FirebaseAuth.instance.currentUser;
     if (user == null) {
       throw Exception("Пользователь не авторизован");
     }
     return user.uid;
   }
-  // static String get _uid => 'test_uid'; // только на время тестов
+
+  // Флаг, который можно включать в тестах
+  static bool _isRunningTests = false;
+
+  // Метод для включения тестового режима
+  static void setTestMode(bool value) {
+    _isRunningTests = value;
+  }
 
 
   // ----------------- TASKS -----------------
