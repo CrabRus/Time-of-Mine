@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1038026278537",
+    "project_id": "time-of-mine",
+    "storage_bucket": "time-of-mine.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1038026278537:android:430a3ed79f7dc66c336858",
+        "android_client_info": {
+          "package_name": "com.example.time_of_mine"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD9iqViy7pkCl0kesM4dVsh1p8izaQQPcI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

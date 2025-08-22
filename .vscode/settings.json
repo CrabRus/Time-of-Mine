@@ -1,0 +1,6 @@
+{
+    "outline.showMethods": true,
+    "outline.showObjects": true,
+    "workbench.tree.indent": 16,
+    "workbench.tree.renderIndentGuides": "always"
+}
