@@ -4,20 +4,17 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:time_of_mine/models/event.dart';
 import 'package:time_of_mine/models/task.dart';
 import 'package:time_of_mine/services/sync_service.dart';
+import 'package:flutter/foundation.dart';
 
 class LocalStorageService {
-static String get _uid {
-  // Использовать Firebase
-  final user = FirebaseAuth.instance.currentUser;
-  if (user == null) {
-    throw Exception("Пользователь не авторизован");
+  static String get _uid {
+    final user = FirebaseAuth.instance.currentUser;
+    if (user == null) {
+      throw Exception("Пользователь не авторизован");
+    }
+    return user.uid;
   }
-  return user.uid;
-
-  // Для тестов можно временно раскомментировать следующую строку
-  // return 'test_uid';
-}
-
+  // static String get _uid => 'test_uid'; // только на время тестов
 
 
   // ----------------- TASKS -----------------
@@ -135,5 +132,29 @@ static String get _uid {
   static Future<bool> getShowHolidays() async {
     final prefs = await SharedPreferences.getInstance();
     return prefs.getBool(_calendarHolidaysKey) ?? true;
+  }
+}
+
+
+class AuthHelper {
+  static String get uid {
+    // В тестах Flutter (widget/unit tests) kIsWeb и !kReleaseMode можно использовать, 
+    // или просто проверять, что currentUser == null
+    if (kDebugMode && _isRunningTests) {
+      return 'test_uid';
+    }
+
+    final user = FirebaseAuth.instance.currentUser;
+    if (user == null) {
+      throw Exception("Пользователь не авторизован");
+    }
+    return user.uid;
+  }
+
+  // Можно установить этот флаг в тестах
+  static bool _isRunningTests = false;
+
+  static void setTestMode(bool value) {
+    _isRunningTests = value;
   }
 }

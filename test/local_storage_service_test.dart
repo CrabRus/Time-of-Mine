@@ -7,6 +7,9 @@ import 'package:time_of_mine/models/event.dart';
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
+    // Включаем тестовый режим
+  AuthHelper.setTestMode(true);
+
   setUp(() {
     SharedPreferences.setMockInitialValues({});
   });
