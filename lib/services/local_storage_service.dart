@@ -6,14 +6,18 @@ import 'package:time_of_mine/models/task.dart';
 import 'package:time_of_mine/services/sync_service.dart';
 
 class LocalStorageService {
-  static String get _uid {
-    final user = FirebaseAuth.instance.currentUser;
-    if (user == null) {
-      throw Exception("Пользователь не авторизован");
-    }
-    return user.uid;
+static String get _uid {
+  // Использовать Firebase
+  final user = FirebaseAuth.instance.currentUser;
+  if (user == null) {
+    throw Exception("Пользователь не авторизован");
   }
-  // static String get _uid => 'test_uid'; // только на время тестов
+  return user.uid;
+
+  // Для тестов можно временно раскомментировать следующую строку
+  // return 'test_uid';
+}
+
 
 
   // ----------------- TASKS -----------------

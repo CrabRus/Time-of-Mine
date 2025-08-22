@@ -14,10 +14,10 @@ class HolidayApiService {
     int? month,
     int? day,
   }) async {
-    if (_apiKey == null || _apiKey.isEmpty) {
+    if (_apiKey == null || _apiKey!.isEmpty) {
       throw Exception('API key не найден. Проверьте .env: HOLIDAY_API_KEY.');
     }
-    if (_baseUrl == null || _baseUrl.isEmpty) {
+    if (_baseUrl == null || _baseUrl!.isEmpty) {
       throw Exception('BASE_URL не найден. Проверьте .env: BASE_URL.');
     }
 
