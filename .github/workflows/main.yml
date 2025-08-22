@@ -2,35 +2,27 @@ name: Flutter CI
 
 on:
   pull_request:
-    branches:
-      - main
-      - master
-  
+    branches: [main, master]
   push:
-    branches:
-      - main
-      - master
-      - develop
-  
+    branches: [main, master, develop]
+
 jobs:
   build:
-    name: Build & Release
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-
-      - uses: actions/setup-java@v3
+      - uses: actions/checkout@v1
+      - uses: actions/setup-java@v1
         with:
-          distribution: 'zulu'
-          java-version: '17' # Рекомендуемая версия для Flutter
-
-      - uses: subosito/flutter-action@v2
+          java-version: '17.x'
+      - uses: subosito/flutter-action@v1
         with:
           flutter-version: '3.35.1'
-          channel: 'stable'
 
-      - run: flutter --version
-      - run: dart --version
+      - name: Create .env file
+        run: |
+          echo "API_KEY=${{ secrets.API_KEY }}" >> .env
+          echo "BASE_URL=${{ secrets.BASE_URL }}" >> .env
+
       - run: flutter config --no-analytics
       - run: flutter doctor
       - run: flutter clean
